@@ -21,7 +21,7 @@ mod landscape_view;
 
 fn main() {
     let opengl = OpenGL::V3_2;
-    let settings = WindowSettings::new("Cellular Automata", [400; 2])
+    let settings = WindowSettings::new("Cellular Automata", [500; 2])
         .graphics_api(opengl)
         .exit_on_esc(true);
 

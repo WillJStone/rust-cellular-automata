@@ -43,7 +43,7 @@ impl LandscapeView {
 
         let transform = c
                 .transform
-                .trans(0.0, 0.0);
+                .trans(50.0, 50.0);
 
         for j in 0..controller.landscape.landscape_size {
             for i in 0..controller.landscape.landscape_size {

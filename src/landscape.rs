@@ -19,7 +19,10 @@ impl Landscape {
         
         for i in 0..SIZE {
             for j in 0..SIZE {
-                landscape.cells[i][j] = rand::random::<bool>()
+                let r = rand::random::<f64>();
+                if r > 0.93 {
+                    landscape.cells[i][j] = true;
+                }
             }
         }
 
