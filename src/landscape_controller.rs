@@ -66,31 +66,6 @@ impl LandscapeController {
             }
 
             self.landscape.cells = new_cell_state;
-
         }
     }
-
-    // pub fn event<E: GenericEvent>(&mut self, e: &E) {
-    //     if let Some(_) = e.update_args() {
-    //         // Turn off previous cell
-    //         self.landscape.toggle_state(self.current_index);
-
-    //         if self.current_index[0] < self.landscape.landscape_size - 1 {
-    //             self.current_index[0] += 1;
-    //         } else {
-    //             self.current_index[0] = 0;
-    //             if self.current_index[1] < self.landscape.landscape_size - 1 {
-    //                 self.current_index[1] += 1;
-    //             } else {
-    //                 self.current_index[1] = 0;
-    //             }
-    //         }
-
-    //         // Turn on new cell
-    //         self.landscape.toggle_state(self.current_index);
-
-    //         // println!("{:?}", self.landscape.cells);
-    //     }
-        
-    // }
 }
