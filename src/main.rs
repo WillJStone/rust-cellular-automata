@@ -29,7 +29,7 @@ fn main() {
         .expect("Could not create window");
     let event_settings: EventSettings = EventSettings::new()
         .max_fps(25)
-        .ups(10);
+        .ups(5);
     let mut events = Events::new(event_settings);
     let mut gl = GlGraphics::new(opengl);
 

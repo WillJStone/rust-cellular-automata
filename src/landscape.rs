@@ -1,3 +1,6 @@
+extern crate rand;
+
+
 const SIZE: usize = 100;
 
 
@@ -13,7 +16,12 @@ impl Landscape {
             cells: [[false; SIZE]; SIZE],
             landscape_size: SIZE,
         };
-        landscape.cells[0][0] = true;
+        
+        for i in 0..SIZE {
+            for j in 0..SIZE {
+                landscape.cells[i][j] = rand::random::<bool>()
+            }
+        }
 
         landscape
     }

@@ -41,13 +41,16 @@ impl LandscapeController {
             if total < 2 || total > 3 {
                 return false
             }
+            else {
+                return true
+            }
         } else {
             if total == 3 {
                 return true
+            } else {
+                return false
             }
         }
-
-        true
     }
 
     pub fn event<E: GenericEvent>(&mut self, e: &E) {
