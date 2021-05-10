@@ -49,7 +49,7 @@ impl LandscapeView {
             for i in 0..controller.landscape.landscape_size {
                 let square = rectangle::square((i * 4) as f64, (j * 4) as f64, 4.0);
 
-                if controller.landscape.cells[j][i] {
+                if controller.landscape.cells[j][i].is_alive {
                     live_cell.draw(square, &c.draw_state, transform, g);
                 } else {
                     dead_cell.draw(square, &c.draw_state, transform, g);

@@ -28,16 +28,16 @@ impl LandscapeController {
         let upper_i = if (i as i8 + 1) <= (size - 1) as i8 {i + 1} else {0 as usize};
         let upper_j = if (j as i8+ 1) <= (size - 1) as i8 {j + 1} else {0 as usize};
 
-        let total = cell_array[i][lower_j] as i8 + 
-            cell_array[i][upper_j] as i8 +
-            cell_array[lower_i][j] as i8 + 
-            cell_array[upper_i][j] as i8 +
-            cell_array[lower_i][lower_j] as i8 +
-            cell_array[lower_i][upper_j] as i8 +
-            cell_array[upper_i][lower_j] as i8 +
-            cell_array[upper_i][upper_j] as i8;
+        let total = cell_array[i][lower_j].is_alive as i8 + 
+            cell_array[i][upper_j].is_alive as i8 +
+            cell_array[lower_i][j].is_alive as i8 + 
+            cell_array[upper_i][j].is_alive as i8 +
+            cell_array[lower_i][lower_j].is_alive as i8 +
+            cell_array[lower_i][upper_j].is_alive as i8 +
+            cell_array[upper_i][lower_j].is_alive as i8 +
+            cell_array[upper_i][upper_j].is_alive as i8;
 
-        if cell_array[i][j] {
+        if cell_array[i][j].is_alive {
             if total < 2 || total > 3 {
                 return false
             }
@@ -57,15 +57,16 @@ impl LandscapeController {
         if let Some(_) = e.update_args() {
             let size = self.landscape.landscape_size;
             // Clone cellstate just to get an array with the appropriate shape, it will be overwritten
-            let mut new_cell_state = self.landscape.cells.clone();
+            let mut updated_cells = self.landscape.cells.clone();
 
             for i in 0..size {
                 for j in 0..size{
-                    new_cell_state[i][j] = self.update_cell([i, j]);
+                    let cell_is_alive = self.update_cell([i, j]);
+                    updated_cells[i][j].is_alive = cell_is_alive;
                 }
             }
 
-            self.landscape.cells = new_cell_state;
+            self.landscape.cells = updated_cells;
         }
     }
 }
